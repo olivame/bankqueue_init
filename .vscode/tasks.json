@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "g++",
+			"args": [
+				"-g",
+				"-I", "${workspaceFolder}/include", // 添加头文件路径
+				"${workspaceFolder}/src/event.cpp", // 修改为你的源文件路径
+				"-o",
+				"${workspaceFolder}/bin/event.exe" // 修改为你的可执行文件路径
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": ["$gcc"],
+			"detail": "Generated task by GitHub Copilot"
+		}
+	]
+}
