@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\team_assignment\course\Data Structures And Algorithms\bankqueue_init\build\CMakeFiles\2f2dc2a399fde89cc8208992849f8c93\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BAB95390-299A-35B9-857D-051ABE194738}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

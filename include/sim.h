@@ -112,7 +112,7 @@ void RunSimulation(Simulation* s)
     Event* e = (Event*)malloc(sizeof(Event));
     Event* newevent = (Event*)malloc(sizeof(Event));
     int nexttime, tellerID, servicetime, waittime;
-    isVip customertype;
+    isVip customertype,precustomertype;
     /* 遍历事件优先级队列，直到队列为空 */
     while (!PQEmpty(&(s->pq)))
     {
@@ -158,7 +158,7 @@ void RunSimulation(Simulation* s)
 
             /* 将生成的离开事件加入优先级队列 */
             InitEvent(newevent, s->tstat[tellerID].finishService,
-                departure, e->customerID, tellerID, waittime, servicetime, customertype);
+                departure, e->customerID, tellerID, waittime, servicetime, e->isvip);
 
             PQInsert(&(s->pq), *newevent);
         }
