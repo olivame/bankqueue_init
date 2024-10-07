@@ -34,7 +34,7 @@ typedef struct simulation Simulation;
 void InitSimulation(Simulation* s);			/* 事件驱动模拟的初始化 */
 int NextArrivalTime(Simulation* s);     	/* 计算下一客户到达时间，随机生成 */
 int Get_ServiceTime(Simulation*);       	/* 计算客户服务时间，随机生成 */
-int NextAvailableTeller(Simulation* s); 	/* 计算下一个可供服务的出纳窗口号 */
+int NextAvailableTeller(Simulation* s,isVip); 	/* 计算下一个可供服务的出纳窗口号 */
 void RunSimulation(Simulation* s);			/* 运行事件模拟 */
 void PrintSimulationResults(Simulation* s);	/* 输出模拟结果 */
 
@@ -143,7 +143,7 @@ void RunSimulation(Simulation* s)
             /* 生成到达事件的离开事件 */
             servicetime = Get_ServiceTime(s);
             /* 计算可供服务的出纳窗口 */
-            tellerID = NextAvailableTeller(s);
+            tellerID = NextAvailableTeller(s,e->isvip);
             
             /* 如果选定的出纳窗口是空闲的，则更新完成时间预告为当前到达事件时间，以便后续更新完成时间 */
             if (s->tstat[tellerID].finishService == 0)
