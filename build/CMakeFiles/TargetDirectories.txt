@@ -1,3 +1,0 @@
-E:/team_assignment/course/Data Structures And Algorithms/bankqueue_init/build/CMakeFiles/event.dir
-E:/team_assignment/course/Data Structures And Algorithms/bankqueue_init/build/CMakeFiles/ALL_BUILD.dir
-E:/team_assignment/course/Data Structures And Algorithms/bankqueue_init/build/CMakeFiles/ZERO_CHECK.dir

@@ -83,7 +83,7 @@ int Get_ServiceTime(Simulation* s)
 }
 
 /* 计算下一个可供服务的出纳窗口号 */
-int NextAvailableTeller(Simulation* s)
+int NextAvailableTeller(Simulation* s,isVip status)
 { 
     int minfinishindex = 1;						/* 初始化最快空闲窗口为第一个窗口 */
     int minfinish = s->tstat[1].finishService;	/* 初始化最快空闲时间预告为第一个窗口的空闲时间预告 */
@@ -101,9 +101,13 @@ int NextAvailableTeller(Simulation* s)
         else {
             if (s->tstat[i].finishService == minfinish)
                 num[m++] = i;
-        }  	
-    minfinishindex = num[rand() % m];
-    return minfinishindex;
+        }
+    if(num[0]==1 && status==Vip) return 1;
+    else if(num[0]==1 && status!=Vip) return rand() % (s->numTellers-2+1)+2;
+    else {
+        minfinishindex = num[rand() % m];
+        return minfinishindex;
+    }
 }
 
 /* 运行事件驱动模拟 */
