@@ -102,28 +102,26 @@ int NextAvailableTeller(Simulation* s,isVip status)
             if (s->tstat[i].finishService == minfinish)
                 num[m++] = i;
         }
+   /* minfinishindex = num[rand() % m];
+    return minfinishindex;
+    */
+   //更改前
+   
     //1号窗口是vip窗口，如果是vip则返回优先级：空vip窗口1>空普通窗口>非空vip窗口>非空普通窗口
     if (status == Vip) {
-        if (s->tstat[1].finishService == 0) return 1;
-        else {
-            if (m == 1 && num[0]!=1) return 1;
-            else {
-                return 1 + rand() % (s->numTellers - 1);
-            }
-        }
+        if(s->tstat[num[0]].finishService!=0) return 1;
+        else if(s->tstat[num[0]].finishService==0) return num[0];
+        else return 2 + rand() % (s->numTellers - 1);
     }
     //如果不是vip，不能使用1号窗口
     else {
-        if (num[0]==1){
-            if(s->tstat[1].finishService== 0 && m==1) return 1 + rand() % (s->numTellers - 1);
-            else if(s->tstat[1].finishService== 0 && m!=1) return num[1+rand() % (m-1)];
-            else return 1 + rand() % (s->numTellers - 1);
+        if(num[0]==1 && m==1) return 2 + rand() % (s->numTellers - 1);
+        else if(num[0]==1 && m!=1) return num[1+rand() % (m-1)];
+        else if(num[0]!=1){
+            if(s->tstat[num[0]].finishService==0) return num[rand() % m];
+            else return 2 + rand() % (s->numTellers - 1);
         }
-        else{
-            if(s->tstat[num[0]].finishService== 0 && m!=1) return num[rand() % m];
-            else return 1 + rand() % (s->numTellers - 1);
-            
-        }
+        else return 2 + rand() % (s->numTellers - 1);
     }
 }
 
