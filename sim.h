@@ -115,11 +115,9 @@ int NextAvailableTeller(Simulation* s,isVip status)
     }
     //如果不是vip，不能使用1号窗口
     else {
-        if(num[0]==1 && m==1) return 2 + rand() % (s->numTellers - 1);
-        else if(num[0]==1 && m!=1) return num[1+rand() % (m-1)];
-        else if(num[0]!=1){
-            if(s->tstat[num[0]].finishService==0) return num[rand() % m];
-            else return 2 + rand() % (s->numTellers - 1);
+        if (s->tstat[num[0]].finishService == 0){
+            if(num[0] == 1) return 2 + rand() % (s->numTellers - 1);
+            else return num[0];
         }
         else return 2 + rand() % (s->numTellers - 1);
     }
