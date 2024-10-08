@@ -6,7 +6,7 @@
       "name": "C++ Debug",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/event.exe",
+      "program": "${workspaceFolder}/event.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
